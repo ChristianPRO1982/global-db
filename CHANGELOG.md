@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/ChristianPRO1982/global-db/compare/v1.1.0...v1.2.0) (2025-03-20)
+
+
+### Features
+
+* README: add badges ([6d1ecc2](https://github.com/ChristianPRO1982/global-db/commit/6d1ecc2d872f5a7758a2676261841ed1dc63f656))
+
 # [1.1.0](https://github.com/ChristianPRO1982/global-db/compare/v1.0.0...v1.1.0) (2025-03-20)
 
 
