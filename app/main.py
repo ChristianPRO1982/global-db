@@ -5,7 +5,7 @@ from .crud import CRUD
 
 app = FastAPI()
 
-# database = Database()
+database = Database()
 # crud = CRUD()
 
 @app.get("/")

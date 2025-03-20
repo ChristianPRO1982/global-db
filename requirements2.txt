@@ -1,0 +1,8 @@
+
+sqlmodel
+pyodbc
+pandas
+jwt
+pyjwt
+passlib
+python-multipart

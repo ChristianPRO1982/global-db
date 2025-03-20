@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String
 from .database import Database
 
-class Topic(Database.Base):
+class Topic(Database.base):
     __tablename__ = 'topics'
 
     id = Column(Integer, primary_key=True, index=True)
