@@ -1,33 +1,24 @@
-from fastapi import FastAPI, Depends
-from sqlalchemy.orm import Session
-from .database import Database
-from .crud import CRUD
+# app/main.py
+from fastapi import FastAPI
+from app.routers import news
+from app.database import engine
+from app.models import news as news_models
 
-app = FastAPI()
 
-database = Database()
-# crud = CRUD()
+news_models.Base.metadata.create_all(bind=engine)
+
+
+app = FastAPI(
+    title="AI Monitoring Topics API",
+    description="API CRUD pour la base de données ai_monitoring_topics",
+    version="0.1.0"
+)
+
+
+app.include_router(news.router)
+
 
 @app.get("/")
 def read_root():
-    return 'coco'
+    return {"message": "Welcome to AI Monitoring Topics API"}
 
-# @app.post("/topics/")
-# def create_topic(title: str, description: str, db: Session = Depends(database.get_db)):
-#     return crud.create_topic(db=db, title=title, description=description)
-
-# @app.get("/topics/{topic_id}")
-# def get_topic(topic_id: int, db: Session = Depends(database.get_db)):
-#     return crud.get_topic(db=db, topic_id=topic_id)
-
-# @app.get("/topics/")
-# def get_topics(skip: int = 0, limit: int = 10, db: Session = Depends(database.get_db)):
-#     return crud.get_topics(db=db, skip=skip, limit=limit)
-
-# @app.put("/topics/{topic_id}")
-# def update_topic(topic_id: int, title: str, description: str, db: Session = Depends(database.get_db)):
-#     return crud.update_topic(db=db, topic_id=topic_id, title=title, description=description)
-
-# @app.delete("/topics/{topic_id}")
-# def delete_topic(topic_id: int, db: Session = Depends(database.get_db)):
-#     return crud.delete_topic(db=db, topic_id=topic_id)
